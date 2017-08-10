@@ -31,6 +31,8 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
+  pool: 5
   database: mf_archive_db
   username: ENV['MF_DB_USER']
   password: ENV['MF_DB_PASS']
+  host: mysql.samayou.com
