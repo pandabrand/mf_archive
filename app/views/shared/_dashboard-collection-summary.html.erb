@@ -1,0 +1,12 @@
+<div class="mdl-cell mdl-cell--2-col mdl-shadow--2dp">
+  <div class="mdl-card__title mdl-card--expand">
+    <h4>
+      <%= collection_name %>
+    </h4>
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <%= link_to collection_name, "/#{collection_controller}", class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %>
+    <div class="mdl-layout-spacer"></div>
+    <div><%= collection_count %></div>
+  </div>
+</div>

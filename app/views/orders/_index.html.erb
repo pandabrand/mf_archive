@@ -1,0 +1,41 @@
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--12-col mdl-shadow--2dp">
+    <h3>Orders</h3>
+  </div>
+  <div class="mdl-cell mdl-cell--12-col">
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+      <thead>
+        <tr>
+          <th class="mdl-data-table__cell--non-numeric">
+            <%= sort_link(@q, :pk_id, 'Order Number', default_order: :desc) %>
+          </th>
+          <th class="mdl-data-table__cell--non-numeric">
+            <%= sort_link(@q, :creator_username, 'Creator') %>
+          </th>
+          <th class="mdl-data-table__cell--non-numeric">
+            <%= sort_link(@q, :publication_name, 'Publication Name') %>
+          </th>
+          <th class="mdl-data-table__cell--non-numeric">
+            <%= sort_link(@q, :run_date, 'Run Date') %>
+          </th>
+          <th class="mdl-data-table__cell--non-numeric">
+            <%= sort_link(@q, :order_status_name, 'Status') %>
+          </th>
+          <th class="mdl-data-table__cell--non-numeric">
+            <%= sort_link(@q, :template_headline_code, 'Ad Code') %>
+            <!-- Ad Code -->
+          </th>
+          <th class="mdl-data-table__cell--non-numeric">ARF</th>
+          <th class="mdl-data-table__cell--non-numeric">File</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <%= render order %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="mdl-layout-spacer"></div>
+</div>
+<%= will_paginate @orders, class: 'apple_pagination' %>

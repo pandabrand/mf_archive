@@ -1,0 +1,29 @@
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--12-col mdl-shadow--2dp">
+    <h3>Districts</h3>
+  </div>
+  <div class="mdl-cell mdl-cell--12-col">
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+      <thead>
+        <tr>
+          <th class="mdl-data-table__cell--non-numeric">
+            District Name
+          </th>
+          <th class="mdl-data-table__cell--non-numeric">
+            District ID
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @districts.each do |district| %>
+        <tr>
+          <td class="mdl-data-table__cell--non-numeric"><%= district.name %></td>
+          <td class="mdl-data-table__cell--non-numeric"><%= district.area_number %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="mdl-layout-spacer"></div>
+</div>
+<%= will_paginate @districts, class: 'apple_pagination' %>

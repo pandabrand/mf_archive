@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one:
+  area_number: 123
+  is_active: Y
+  name: District One
+  division: one
+#
+two:
+  area_number: 345
+  is_active: Y
+  name: District Two
+  division: one

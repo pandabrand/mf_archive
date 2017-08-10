@@ -1,0 +1,18 @@
+<h1>Complexes</h1>
+
+<div>
+  <div class="mf-title">
+    Name
+  </div>
+  <div class="mf-id">
+    Complex ID
+  </div>
+</div>
+
+<% @complexes.each do |complex| %>
+   <div>
+     <div><%= complex.name %></td>
+     <div><%= complex.complex_id %></div>
+   </div>
+ <% end %>
+ <%= will_paginate @complexes %>

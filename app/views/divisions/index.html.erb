@@ -1,0 +1,18 @@
+<h1>Divisions</h1>
+
+<div>
+  <div class="mf-title">
+    Name
+  </div>
+  <div class="mf-id">
+    Division ID
+  </div>
+</div>
+
+<% @divisions.each do |division| %>
+   <div>
+     <div><%= division.name %></td>
+     <div><%= division.region_id %></div>
+   </div>
+ <% end %>
+ <%= will_paginate @divisions %>

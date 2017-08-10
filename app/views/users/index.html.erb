@@ -1,0 +1,31 @@
+<!-- Knows to repeatedly render the _order partial -->
+<h1>Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <td class="mf-id">
+        User ID
+      </td>
+      <td class="mf-title">
+        User Name
+      </td>
+      <td class="mf-title">
+        Last Name
+      </td>
+      <td class="mf-title">
+        First Name
+      </td>
+    </tr>
+  </thead>
+
+<% @users.each do |user| %>
+   <tr>
+     <td><%= user.pk_id %></td>
+     <td><%= user.username %></td>
+     <td><%= user.user_info.name_first %></td>
+     <td><%= user.user_info.name_last %></td>
+   </tr>
+ <% end %>
+ </table>
+<%= will_paginate @users %>

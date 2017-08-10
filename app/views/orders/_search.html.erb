@@ -1,0 +1,43 @@
+<div class="mdl-grid">
+  <%= search_form_for @q do |f| %>
+
+    <div class="mdl-cell mdl-cell--2-col mdl-textfield mdl-js-textfield">
+      <%= f.text_field :publication_name_cont, class: 'mdl-textfield__input' %>
+      <%= f.label 'Publication Name', class: 'mdl-textfield__label' %>
+    </div>
+
+    <div class="mdl-cell mdl-cell--2-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <%= f.label 'Order Status', class: 'mdl-textfield__label' %>
+      <%= f.collection_select :fk_order_status_id_in, OrderStatus.all, :pk_id, :name, {}, {multiple: true, class: 'mdl-textfield__input'} %>
+    </div>
+
+    <div class="mdl-cell mdl-cell--2-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <%= f.label 'Branch', class: 'mdl-textfield__label' %>
+      <%= f.collection_select :fk_branch_id_in, Branch.where(is_active: 'Y'), :pk_id, :branch_compound_name, {}, {multiple: true, class: 'mdl-textfield__input'} %>
+    </div>
+
+    <div class="mdl-cell mdl-cell--2-col mdl-textfield mdl-js-textfield">
+      <%= f.text_field :creator_username_cont, class: 'mdl-textfield__input' %>
+      <%= f.label 'Creator Email', class: 'mdl-textfield__label' %>
+    </div>
+
+    <div class="mdl-cell mdl-cell--2-col mdl-textfield mdl-js-textfield">
+      <%= f.text_field :run_date_gteq, :class => 'datepicker mdl-textfield__input' %>
+      <%= f.label 'Run Date Start', class: 'mdl-textfield__label' %>
+    </div>
+
+    <div class="mdl-cell mdl-cell--2-col mdl-textfield mdl-js-textfield">
+      <%= f.text_field :run_date_lteq, :class => 'datepicker mdl-textfield__input' %>
+      <%= f.label 'Run Date End', class: 'mdl-textfield__label' %>
+    </div>
+
+    <div class="mdl-cell mdl-cell--2-col mdl-textfield mdl-js-textfield">
+      <%= f.text_field :form_field_values_value_cont, class: 'mdl-textfield__input' %>
+      <%= f.label 'Financial Advisor Name', class: 'mdl-textfield__label' %>
+    </div>
+
+    <div class="mdl-cell mdl-cell--12-col">
+      <%= f.submit class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--accent' %>
+    </div>
+  <% end %>
+</div>

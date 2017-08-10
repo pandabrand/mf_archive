@@ -1,0 +1,26 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one:
+  is_active: Y
+  name: Branch One
+  branch_id: 100123
+  complex: one
+  address1: 1234 Not Real Ave
+  address2: Building 2000
+  city: Nowhere
+  zip: 23456
+#
+two:
+  is_active: Y
+  name: Branch Two
+  branch_id: 100234
+  complex: two
+  address1: 1234 Fake St
+  address2: Building 1000
+  city: Anywhere
+  zip: 12345
+# column: value

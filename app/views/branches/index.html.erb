@@ -1,0 +1,22 @@
+<h1>Branches</h1>
+
+<div>
+  <div class="mf-title">
+    Name
+  </div>
+  <div class="mf-id">
+    Branch ID
+  </div>
+  <div class="mf-complex-id">
+    Complex ID
+  </div>
+</div>
+
+<% @branches.each do |branch| %>
+   <div>
+     <div><%= branch.name %></td>
+     <div><%= branch.branch_id %></div>
+     <div><%= branch.m_complex.name %></div>
+   </div>
+ <% end %>
+ <%= will_paginate @branches %>

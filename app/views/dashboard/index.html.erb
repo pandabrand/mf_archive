@@ -1,0 +1,8 @@
+<%= render partial: "shared/dashboard-collection-summary", locals: {collection_name: 'Division', collection_count: @division_count, collection_controller: 'divisions'} %>
+<%= render partial: "shared/dashboard-collection-summary", locals: {collection_name: 'District', collection_count: @district_count, collection_controller: 'districts'} %>
+<%= render partial: "shared/dashboard-collection-summary", locals: {collection_name: 'Complex', collection_count: @complex_count, collection_controller: 'm_complexes'} %>
+<%= render partial: "shared/dashboard-collection-summary", locals: {collection_name: 'Branch', collection_count: @branch_count, collection_controller: 'branches'} %>
+<%= render partial: "shared/dashboard-collection-summary", locals: {collection_name: 'Order', collection_count: @order_count, collection_controller: 'orders'} %>
+
+<%= render 'search', locals: { q: @q } %>
+<%= render 'orders/index' %>
