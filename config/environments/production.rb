@@ -86,7 +86,7 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  ENV['GEM_PATH'] = '/home/pandabrand/.gems' #+ ':/usr/lib/ruby/gems/1.8'  # Need this or Passenger fails to start
+  # ENV['GEM_PATH'] = '/home/pandabrand/.gems' #+ ':/usr/lib/ruby/gems/1.8'  # Need this or Passenger fails to start
 
   require File.join(File.dirname(__FILE__), 'boot')
   # Do not dump schema after migrations.
