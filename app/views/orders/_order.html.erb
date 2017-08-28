@@ -13,7 +13,7 @@
   </td>
   <td class="mdl-data-table__cell--non-numeric">
     <% unless order.hi_res_download_path.empty? %>
-      <%= link_to order.hi_res_download_path, target: '_blank' do %>
+      <%= link_to order.hi_res_download_path, download: '', target: '_blank' do %>
         <i class="material-icons">description</i>
       <% end %>
     <% else %>

@@ -18,6 +18,10 @@ class UserInfo < ApplicationRecord
   end
 
   def branch_manager
-    branch.user_infos.first
+    unless branch.nil?
+      branch.branch_managers.first
+    else
+      nil
+    end
   end
 end

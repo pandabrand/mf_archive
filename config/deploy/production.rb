@@ -7,7 +7,7 @@ set :prod, :production
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
-server "cotrell.dreamhost.com", user: "pandabrand", roles: %w{app db web}, my_property: :my_value
+server "cottrell.dreamhost.com", user: "pandabrand", roles: %w{app db web}, my_property: :my_value
 
 
 

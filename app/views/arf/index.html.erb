@@ -149,7 +149,7 @@
 						<% unless @order.approval_bm.nil? %>
 							<%= @order.approval_bm.user_name %>
 						<% else %>
-							Admin
+							None
 						<% end %>
 					</td>
 					<td>
@@ -158,6 +158,8 @@
 						</div>
 						<% unless @order.approval_bm.nil? %>
 							<%= @order.approval_bm.date_created.localtime("-05:00") %>
+						<% else %>
+							None
 						<% end %>
 					</td>
 				</tr>
@@ -172,8 +174,12 @@
 						<div class="label">
 							Date(s) to Run:
 						</div>
+						<%= @order.run_date.localtime("-05:00") %>
+						<% unless @order.additional_run_dates.nil? %>
+							<br/>
+						<% end %>
 						<% @order.additional_run_dates.each do |date| %>
-							<%= date.run_date.localtime("-05:00") %>
+							<%= date.run_date.localtime("-05:00") %><br/>
 						<% end %>
 					</td>
 				</tr>
@@ -234,14 +240,18 @@
 						<div class="label">
 							First Level Approver:
 						</div>
-						<%= @order.approval_bm.user_name %>
+						<% unless @order.approval_bm.nil? %>
+							<%= @order.approval_bm.user_name %>
+						<% end %>
 					</td>
 					<td>
 						<div class="label">
 							Date Approved:
 						</div>
-						<%= @order.approval_bm.date_created.localtime("-05:00") %>
-					</td>
+						<% unless @order.approval_bm.nil? %>
+							<%= @order.approval_bm.date_created.localtime("-05:00") %>
+						<% end %>
+						</td>
 				</tr>
 			</table>
 			<div class="subheader">
@@ -275,6 +285,7 @@
 				Please retain a copy of the approved ARF along with a copy of the final ad for branch records.
 			</div>
 			<div class="footer">
+				<%= image_tag wicked_pdf_asset_base64('ms_logo.png') %>
 			</div>
 		</div>
 	</body>
