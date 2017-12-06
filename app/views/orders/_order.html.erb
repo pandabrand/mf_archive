@@ -4,7 +4,7 @@
   order.creator.username %></td>
   <td class="mdl-data-table__cell--non-numeric"><%= order.publication_name %></td>
   <td class="mdl-data-table__cell--non-numeric"><%= order.run_date.nil? ? '' :  order.run_date.localtime("-05:00") %></td>
-  <td class="mdl-data-table__cell--non-numeric"><%= order.order_status.name %></td>
+  <td class="mdl-data-table__cell--non-numeric"><%= order.order_status.nil? ? '' : order.order_status.name %></td>
   <td class="mdl-data-table__cell--non-numeric"><%= order.template.nil? || order.template.headline.nil? ? '' : order.template.headline.code %></td>
   <td class="mdl-data-table__cell--non-numeric">
     <%= link_to "/arf/#{order.pk_id}", target: '_blank' do %>

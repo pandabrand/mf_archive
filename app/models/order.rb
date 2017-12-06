@@ -11,7 +11,7 @@ class Order < ApplicationRecord
   has_many :approval_details, inverse_of: 'order', foreign_key: 'fk_order_id'
   has_many :form_field_values, inverse_of: 'order', foreign_key: 'fk_order_id'
   has_one :approval_bm,  ->(approval_detail) { where("((status_description = 'BM approved' or status_description = 'approved') and (user_role = 'Branch Manager' OR user_role = 'Media Manager')) or (status_description = 'approved' and user_role = 'Site Administrator')") }, class_name: 'ApprovalDetail', foreign_key: 'fk_order_id'
-  has_one :approval_dm, ->(approval_detail) { where("status_description =  'approved' and user_role = 'District Administrator'") }, class_name: 'ApprovalDetail', foreign_key: 'fk_order_id'
+  has_one :approval_dm, ->(approval_detail) { where("status_description =  'approved' and user_role = 'District Manager'") }, class_name: 'ApprovalDetail', foreign_key: 'fk_order_id'
   has_many :additional_run_dates, inverse_of: 'order', foreign_key: 'fk_order_id'
 
   def path_arrray
@@ -32,7 +32,7 @@ class Order < ApplicationRecord
 
   def hi_res_download_path
     if File.exists?(hi_res_path)
-      "/public/pickup/#{path_arrray.last}"
+      "/pickup/#{path_arrray.last}"
     else
       ''
     end

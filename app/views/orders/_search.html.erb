@@ -2,18 +2,23 @@
   <%= search_form_for @q do |f| %>
 
     <div class="mdl-cell mdl-cell--2-col mdl-textfield mdl-js-textfield">
-      <%= f.text_field :publication_name_cont, class: 'mdl-textfield__input' %>
-      <%= f.label 'Publication Name', class: 'mdl-textfield__label' %>
+      <%= f.text_field :pk_id_eq, class: 'mdl-textfield__input' %>
+      <%= f.label 'Order Number', class: 'mdl-textfield__label' %>
+    </div>
+
+    <div class="mdl-cell mdl-cell--2-col mdl-textfield mdl-js-textfield">
+        <%= f.text_field :publication_name_cont, class: 'mdl-textfield__input' %>
+        <%= f.label 'Publication Name', class: 'mdl-textfield__label' %>
     </div>
 
     <div class="mdl-cell mdl-cell--2-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <%= f.label 'Order Status', class: 'mdl-textfield__label' %>
-      <%= f.collection_select :fk_order_status_id_in, OrderStatus.all, :pk_id, :name, {}, {multiple: true, class: 'mdl-textfield__input'} %>
+      <%= f.collection_select :fk_order_status_id_in, OrderStatus.all.order('name ASC'), :pk_id, :name, {}, {multiple: true, class: 'mdl-textfield__input'} %>
     </div>
 
-    <div class="mdl-cell mdl-cell--2-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <div class="mdl-cell mdl-cell--4-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <%= f.label 'Branch', class: 'mdl-textfield__label' %>
-      <%= f.collection_select :fk_branch_id_in, Branch.where(is_active: 'Y'), :pk_id, :branch_compound_name, {}, {multiple: true, class: 'mdl-textfield__input'} %>
+      <%= f.collection_select :fk_branch_id_in, Branch.where(is_active: 'Y').order('branch_id ASC'), :pk_id, :branch_compound_name, {}, {multiple: true, class: 'mdl-textfield__input'} %>
     </div>
 
     <div class="mdl-cell mdl-cell--2-col mdl-textfield mdl-js-textfield">
