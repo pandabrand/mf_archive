@@ -16,15 +16,27 @@ class Order < ApplicationRecord
 
   def path_arrray
     unless hi_res_uri.nil?
+      slash_index = hi_res_uri.rindex('\\')
+      slash_filename = hi_res_uri[slash_index+1, hi_res_uri.length]
+      puts slash_filename
       hi_res_uri.split('\\\\')
     else
       []
     end
   end
 
+  def slash_filename
+    unless hi_res_uri.nil?
+      slash_index = hi_res_uri.rindex('\\')
+      hi_res_uri[slash_index+1, hi_res_uri.length]
+    else
+      nil
+    end
+  end
+
   def hi_res_path
-    unless path_arrray.empty?
-      "#{Rails.root}/public/pickup/#{path_arrray.last}"
+    unless hi_res_uri.nil?
+      "#{Rails.root}/public/pickup/#{slash_filename}"
     else
       ''
     end
@@ -32,7 +44,7 @@ class Order < ApplicationRecord
 
   def hi_res_download_path
     if File.exists?(hi_res_path)
-      "/pickup/#{path_arrray.last}"
+      "/pickup/#{slash_filename}"
     else
       ''
     end
